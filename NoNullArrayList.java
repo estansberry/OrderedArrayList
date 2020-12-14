@@ -1,25 +1,35 @@
 import java.util.ArrayList;
-NoNullArrayList<T> extends ArrayList<T> {
-  public void add(Object a){
+public class NoNullArrayList<T> extends ArrayList<T> {
+
+  public NoNullArrayList(){
+    super();
+    ArrayList<T> newarr = new ArrayList<T>();
+  }
+  public NoNullArrayList(int size){
+    super();
+    ArrayList<T> newarr = new ArrayList<T>(size);
+  }
+
+  public boolean add(T a){
     if(a == null){
       throw new IllegalArgumentException();
     }else{
-      T.add(a);
+      super.add(a);
     }
   }
-  public void add(int index, Object a){
+  public void add(int index, T a){
     if(a == null){
       throw new IllegalArgumentException();
     }else{
-      T.add(index, a);
+      super.add(index, a);
     }
   }
 
-  public void set(int index, Object a){
+  public T set(int index, T a){
     if(a == null){
       throw new IllegalArgumentException();
     }else{
-      T.set(index, a);
+      super.set(index, a);
     }
   }
 }
