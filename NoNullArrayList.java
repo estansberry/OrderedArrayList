@@ -16,7 +16,9 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     }else{
       super.add(a);
     }
+    return(true);
   }
+
   public void add(int index, T a){
     if(a == null){
       throw new IllegalArgumentException();
@@ -26,10 +28,12 @@ public class NoNullArrayList<T> extends ArrayList<T> {
   }
 
   public T set(int index, T a){
+    T x = super.get(index);
     if(a == null){
       throw new IllegalArgumentException();
     }else{
       super.set(index, a);
     }
+    return(x);
   }
 }
