@@ -9,14 +9,11 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     NoNullArrayList<T> newarr = new NoNullArrayList<T>(size);
   }
   public boolean add(T a){
-    for(int i = 0; i < size(); i ++){
-      if(a.compareTo(super.get(i)) >= 0){
-        super.add(i, a);
-        break;
-      }else{
-        super.add(size() - 1, a);
-      }
-    }return(true);
+    int i = 0;
+    while (i < size() && a.compareTo(get(i)) > 0){
+      i++;
+    }super.add(i, a);
+    return true;
   }
   public void add(int index, T a){
     add(a);
